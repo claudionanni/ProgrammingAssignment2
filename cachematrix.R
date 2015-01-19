@@ -1,6 +1,6 @@
-## These function are used to create special types of matrices which cache their inverse on creation, and return the cached value when needed without caluclation. 
+## These function are used to create special types of matrices which can cache their inverse, and return the cached value when needed without calculation. 
 
-## Function that takes a matrix as input and creates a special 'object' that caches the inverse of the matrix, and have methods to set/get values.
+## Function that takes a matrix as input and creates a special 'object' (data+functions) that can store the cached value of the inverse of the matrix, and have methods to set/get values.
 
 makeCacheMatrix <- function(x = matrix()) {
         invmat <- NULL
@@ -16,7 +16,8 @@ makeCacheMatrix <- function(x = matrix()) {
              getinverse = getinverse)
 }
 
-## Function that returns the cached valued of the inverse of the nmatrix contained in the special object created by the function makeCacheMatrix
+## Function that returns the cached valued of the inverse of the nmatrix contained in the special object created by the function makeCacheMatrix,
+## if the cached value is not yet present it will be calculated and stored.
 
 cachesolve <- function(x, ...) {
         invmat <- x$getinverse()
